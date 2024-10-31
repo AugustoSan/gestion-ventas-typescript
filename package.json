@@ -24,7 +24,8 @@
     "build": "react-scripts build && electron-builder",
     "build-react": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "stop": "pkill -f \"react-scripts start\" || true"
   },
   "eslintConfig": {
     "extends": [
