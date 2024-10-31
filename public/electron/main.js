@@ -37,20 +37,20 @@ function closePortProcess(port) {
 }
 
 function createWindow() {
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-        nodeIntegration: true,
-        contextIsolation: false,
-    },
-  });
-  console.log(`isDev: ${isDev}`);
-  console.log(`URLReact: ${URLReact}`);
-  mainWindow.loadURL(URLReact);
-  if (isDev) {
-      mainWindow.webContents.openDevTools();
-  }
+    mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
+    });
+    console.log(`isDev: ${isDev}`);
+    console.log(`URLReact: ${URLReact}`);
+    mainWindow.loadURL(URLReact);
+    if (isDev) {
+        mainWindow.webContents.openDevTools();
+    }
     mainWindow.on('closed', () => {
         closePortProcess(port); // Cerrar el proceso en el puerto 3000
         mainWindow = null;
