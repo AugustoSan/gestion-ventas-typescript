@@ -2,6 +2,7 @@
   "name": "gestion-ventas-typescript",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron/main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -17,8 +18,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "concurrently \"npm run react-start\" \"npm run electron-start\"",
+    "react-start": "react-scripts start",
+    "electron-start": "wait-on http://localhost:3000 && electron .",
+    "build": "react-scripts build && electron-builder",
+    "build-react": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
